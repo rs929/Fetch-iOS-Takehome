@@ -11,9 +11,7 @@ class NetworkManager {
 
     // MARK: - Shared Instance
 
-    static let shared = NetworkManager()
-
-    private init() { }
+    static var shared = NetworkManager()
 
     // MARK: - Host Endpoint
 
@@ -21,9 +19,9 @@ class NetworkManager {
 
     // MARK: - Networking Functions
 
-    func fetchRecipes(completion: @escaping ([Recipe]) -> Void) {
+    func fetchRecipes(endpoint: String, completion: @escaping ([Recipe]) -> Void) {
 
-        let endpoint = "\(hostURL)/recipes.json"
+        let endpoint = "\(hostURL)/\(endpoint)"
 
         print(endpoint)
 
